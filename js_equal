@@ -1,0 +1,45 @@
+const addNums = (num1) => num1 + 2;
+//const addNums = (num1 = 1, num2 = 1) => num1 + num2;
+//const addNums = (num1 = 1, num2 = 1) => console.log(num1 + num2);
+console.log(addNums(5));
+
+/*
+function addNums(num1 = 1, num2 = 1) {
+  //function안에 default값을 줄 수 있다.
+  console.log(num1 + num2);
+}
+addNums();
+*/
+//addNums(); default number가 없는 경우 Nan으로 표시된다.  NaN = Not a Number
+const z = 10;
+const color = z > 10 ? "red" : "blue";
+//const color = "green";
+console.log(color);
+switch (color) {
+  case "red":
+    console.log("color is red");
+    break;
+  case "blue":
+    console.log("color is blue");
+    break;
+  default:
+    console.log("color is NOT red or blue");
+}
+
+//==인 경우에는 타입(int,String) 상관없이 글자가 10인것이 일치하면 true
+//=== 인 경우 타입과 글자 모두 일치해야한다
+const x = 6;
+const y = 11;
+if (x > 5 && y > 10) {
+  console.log("x is more than 5 and y is more than 10");
+}
+if (x > 5 || y > 10) {
+  console.log("x is more than 5 or y is more than 10");
+}
+if (x === 10) {
+  console.log("x is 10");
+} else if (x > 10) {
+  console.log("x is greater than 10");
+} else {
+  console.log("x is NOT 10");
+}
