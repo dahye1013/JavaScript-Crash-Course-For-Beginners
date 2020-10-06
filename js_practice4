@@ -1,0 +1,62 @@
+const myForm = document.querySelector("#my-form");
+const nameInput = document.querySelector("#name");
+const emailInput = document.querySelector("#email");
+const msg = document.querySelector(".msg");
+const userList = document.querySelector("#users");
+
+myForm.addEventListener("submit", onSubmit); //뒤에 function
+function onSubmit(e) {
+  e.preventDefault();
+  //  console.log(nameInput.value);
+  if (nameInput.value === "" || emailInput.value === "") {
+    msg.classList.add("error");
+    msg.innerHTML = "Please enter all fields";
+    setTimeout(() => msg.remove(), 3000); //3초뒤에 error메시지가 사라지게 한다.
+  } else {
+    const li = document.createElement("li");
+    li.appendChild(
+      document.createTextNode(`${nameInput.value}:${emailInput.value}`)
+    );
+    userList.appendChild(li);
+    //Clear fileds
+    nameInput.value = "";
+    emailInput.value = "";
+    console.log("success");
+  }
+}
+/*
+const btn = document.querySelector(".btn");
+btn.style.background = "green";
+//클릭할떄 어떤 function이 일어나게 할지 뒤에 쓴다.
+//function() 이나 이벤트를 걸 경우 (e)라고 쓴다.
+btn.addEventListener("click", (e) => {
+  e.preventDefault(); //submit버튼에 걸려있는 default이벤트를 막음
+  document.querySelector("#my-form").style.background = "#ccc";
+  document.querySelector("body").classList.add("bg-dark"); //클래스 속성을 추가한다.
+  document.querySelector(".items").lastElementChild.innerHTML =
+    "<h1>Hello</h1>";
+  //  console.log(e.target.className); //이벤트에 걸린 className을 얻을 수 있음.
+});
+
+
+//ul 제거, 텍스트 변경해보기
+const items = document.querySelectorAll(".item");
+items.forEach((item) => console.log(item));
+
+const ul = document.querySelector(".items");
+//ul.remove();
+//ul.lastElementChild.remove();
+ul.firstElementChild.textContent = "Hello";
+ul.children[1].innerText = "Brad";
+ul.lastElementChild.innerHTML = "<h1>Hello</h1>";
+
+// Single element
+const form = document.getElementById("my-form");
+console.log(form);
+console.log(document.querySelector("h1")); //querySelector를 jqeury처럼 사용할 수 있다.
+// Multiple element
+
+console.log(document.querySelectorAll(".item")); //보통 queryselector로 많이 쓴다.
+console.log(document.getElementsByClassName("item"));
+console.log(document.getElementsByTagName("li"));
+*/
